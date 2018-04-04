@@ -1,0 +1,24 @@
+<?php
+//语言定义文件
+return Array(
+'index' => '浏览',
+'detailView' => '详情',
+'editView' => '编辑',
+'createView' => '新建',
+'save' => '保存',
+'delete' => '删除',
+'export' => '导出',
+'modifyFilter' => '编辑过滤',
+'batchDelete' => '批量删除',
+'missEdit' => '快捷编辑',
+'AccountTrack_DETAILVIEW_LABEL' => '跟踪记录信息',
+'LBL_ACCOUNT_TRACK_BASE' => '基本信息',
+'LBL_ACCOUNT_TRACK_INFO' => '记录事项',
+'accountid'       =>'客户',  
+'title'           =>'标题',        
+'remark'          =>'记录事项',    
+'date_create'     =>'记录时间',    
+'user_create'     =>'记录人',    
+);
+
+?>

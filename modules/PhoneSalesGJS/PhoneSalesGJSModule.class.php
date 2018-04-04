@@ -1,0 +1,281 @@
+<?php
+class  PhoneSalesGJSModule extends BaseModule
+{
+	public $baseTable = 'accounts';
+	//模块描述
+	public $describe = '电销工作台(贵金属行业点击取号版)';
+	//需要控制访问权限的模块方法
+    public $actions = Array(
+			'index' => '电销工作台',
+			'save' => '保存',
+			'missEdit'=>'快捷修改',
+			);
+	//字段定义
+	//'字段名'=>Array('UI类型','数据类型','是否强制','提示信息','默认值','最小值/长度','最大值/长度')
+	public $fields = Array(
+			'account_no'      =>Array('17','S',true,'客户编号','ACC'),
+            'account_name'    =>Array('5','S',true,'客户姓名'),
+			'birthday'	      =>Array('30','D',false,'出生日期'),			
+			'sexy'            =>Array('21','E',false,'性别','Man'),
+			'marriage'        =>Array('21','E',false,'婚姻状况','Unmarried'), 
+			'profession'	  =>Array('20','E',false,'职业','Other'),
+			'industry'        =>Array('20','E',false,'行业','Other'),	
+			'post'            =>Array('20','E',false,'职务','Other'),
+			'ID_number'       =>Array('3','S',false,'身份证号码','',18,18),	
+            'company'         =>Array('5','S',false,'客户所在单位全称'),
+			'area'            =>Array('5','S',false,'客户所在区域'),
+			'assets'          =>Array('5','S',false,'资产状况'),
+			'intention'       =>Array('20','E',false,'意向程度','Low'),
+			'sales_result'    =>Array('20','E',false,'售销结果','Follow'),
+			'status'          =>Array('20','E',true,'客户的状态','Normal'),
+			'user_attach'     =>Array('55','N',true,'记录归属于组或用户，将决定其它用户访问此记录的权限'),
+			'bank_name1'      =>Array('5','S',false,'开户银行1'),
+            'bank_account1'   =>Array('5','S',false,'银行帐号1'),
+			'bank_name2'      =>Array('5','S',false,'开户银行2'),
+            'bank_account2'   =>Array('5','S',false,'银行帐号2'),
+			'contact'         =>Array('5','S',false,'联系人'),
+			'telphone'        =>Array('60','S',false,'电话号码'),
+			'mobile'          =>Array('60','S',false,'手机号码'),
+			'fax'             =>Array('60','S',false,'传真号码'),
+			'email'           =>Array('5','S',false,'电子邮箱地址(如:123@qq.com)'),
+			'website'         =>Array('5','S',false,'客户网站的网址(如:http://www.sina.com.cn)'),
+			'address'         =>Array('5','S',false,'客户的详细地址'),
+			'postcode'        =>Array('3','S',false,'邮政编码(6位数字)','',6,6),
+			'date_create'     =>Array('35','DT',true,'记录创建的时间'),
+			'user_create'     =>Array('51','N',true,'创建记录的操作员'),
+			'date_modify'     =>Array('36','DT',false,'最后一次修改记录的时间'),
+			'user_modify'     =>Array('52','N',false,'最后一次修改记录的操作员'),
+			'remark'          =>Array('9','S',false,'备注信息'),
+			);
+	//安全字段,可以控制权限
+	public $safeFields = Array(
+			'account_no'    ,
+			'account_name'  ,
+			'birthday'	    ,
+			'sexy'          ,
+			'marriage'      ,
+			'profession'	,
+			'industry'      ,
+			'post'          ,	
+			'ID_number'     ,
+			'company'       ,
+			'area'          ,
+			'assets'        ,
+			'intention'     ,
+			'sales_result'  ,
+			'status'        ,
+			'user_attach'   ,
+			'bank_name1'    ,
+			'bank_account1' ,
+			'bank_name2'    ,
+			'bank_account2' ,
+			'contact'       ,
+			'telphone'      ,
+			'mobile'        ,
+			'fax'           ,
+			'email'         ,
+			'website'       ,
+			'address'       ,
+			'postcode'      ,
+			'date_create'   ,
+			'user_create'   ,
+			'date_modify'   ,
+			'user_modify'   ,
+			'remark'        ,
+			);
+
+	//编辑字段
+	public $editFields = Array(
+			'account_no'    ,
+			'account_name'  ,
+			'birthday'	    ,
+			'sexy'          ,
+			'marriage'      ,
+			'profession'	,
+			'industry'      ,
+			'post'          ,	
+			'ID_number'     ,
+			'company'       ,
+			'area'          ,
+			'assets'        ,
+			'intention'     ,
+			'sales_result'  ,
+			'status'        ,
+			'user_attach'   ,
+			'bank_name1'    ,
+			'bank_account1' ,
+			'bank_name2'    ,
+			'bank_account2' ,
+			'contact'       ,
+			'telphone'      ,
+			'mobile'        ,
+			'fax'           ,
+			'email'         ,
+			'website'       ,
+			'address'       ,
+			'postcode'      ,
+			'remark'        ,
+			);
+	//列表最大行数
+	public $listMaxRows = 20;
+	//可排序字段
+	public $orderbyFields = Array(
+			'account_no'    ,
+			'account_name'  ,
+			'birthday'	    ,
+			'sexy'          ,
+			'marriage'      ,
+			'profession'	,
+			'industry'      ,
+			'post'          ,	
+			'ID_number'     ,
+			'company'       ,
+			'area'          ,
+			'assets'        ,
+			'intention'     ,
+			'sales_result'  ,
+			'status'        ,
+			'user_attach'   ,
+			'contact'       ,
+			'telphone'      ,
+			'mobile'        ,
+			'fax'           ,
+			'email'         ,
+			'address'       ,
+			'postcode'      ,
+			'date_create'   ,
+			'user_create'   ,
+			'date_modify'   ,
+			'user_modify'   ,
+			);
+			
+
+	//允许miss编辑字段
+	public $missEditFields = Array(
+			'account_name'  ,
+			'birthday'	    ,
+			'sexy'          ,
+			'marriage'      ,
+			'profession'	,
+			'industry'      ,
+			'post'          ,	
+			'ID_number'     ,
+			'company'       ,
+			'area'          ,
+			'assets'        ,
+			'intention'     ,
+			'sales_result'  ,
+			'status'        ,
+			'user_attach'   ,
+			'bank_name1'    ,
+			'bank_account1' ,
+			'bank_name2'    ,
+			'bank_account2' ,
+			'contact'       ,
+			'telphone'      ,
+			'mobile'        ,
+			'fax'           ,
+			'email'         ,
+			'website'       ,
+			'address'       ,
+			'postcode'      ,
+			'remark'        ,
+			);
+	
+	
+	//默认排序
+	public $defaultOrder = Array('account_no','ASC');
+	//详情入口字段
+	public $enteryField = 'account_no';
+	//详细/编辑视图默认列数
+	public $defaultColumns = 3;
+	
+	//分栏定义
+	public $blocks = Array('LBL_ACCOUNT_BASE'=>Array('4',true,Array(
+																	'account_no'    ,
+																	'account_name'  ,
+																	'birthday'	    ,
+																	'sexy'          ,
+																	'marriage'      ,
+																	'profession'	,
+																	'industry'      ,
+																	'post'          ,	
+																	'ID_number'     ,
+																	'company'       ,
+																	'area'          ,
+																	'assets'        ,
+																	'intention'     ,
+																	'sales_result'  ,
+																	'status'        ,
+																	'user_attach'   ,
+																	)),
+						   'LBL_ACCOUNT_BANKINFO'=>Array('4',true,Array(
+																	'bank_name1',
+																	'bank_account1',
+																	'bank_name2'   ,
+																	'bank_account2',
+																	)),	
+						   'LBL_ACCOUNT_COMADDR'=>Array('4',true,Array(
+																	'contact'     ,
+																	'telphone'    ,
+																	'mobile'      ,
+																	'fax'         ,
+																	'email'       ,
+																	'website'     ,
+																	'address'     ,
+																	'postcode'    ,
+																	)),
+							'LBL_ACCOUNT_REMARK'=>Array('1',true,Array('remark')),												
+						);
+	//枚举字段值
+	public $picklist = Array(
+		'status'         => Array('Normal','Repeal'),
+		'intention'      => Array('High','Medium','Low'),
+		'sales_result'   => Array('Failure','Follow','Success'),
+		'sexy'           => Array('Man','Woman'),
+		'marriage'       => Array('Married','Unmarried'),
+		'profession'     => Array('Civil','Medical','Teacher','Lawyer','Accountant','Auditors',
+								  'SOE Staff','Foreign Staff','Private Staff','Professional managers',
+								  'Freelancers','Investors','Self-employed','Soldier','Student','Other'),
+		'industry'       => Array('Public Administration','Social Organizations','Research','Culture',
+								  'Health','Education','Financial','Energy','Telecommunications','Real estate',
+                                  'Internet','Software','Logistics','Traffic','Manufacture','Building','Service',
+								  'Other'), 
+	    'post'           => Array('Staff','Department Manager','General Manager +','Cadres','Section-level cadres','Level cadres','Bureau-level cadres +','Other'),
+		
+	);
+	
+	//字段关联
+	public $associateTo = Array(
+		'user_create' => Array('MODULE','User','detailView','id','user_name'),
+		'user_modify' => Array('MODULE','User','detailView','id','user_name'),    
+	);
+	//模块关联
+	public $associateBy = Array(
+		'ASSOCIATE_APPOINTMENT_INFO' => Array('AccountAppointment','accountid','appointment_time','remark','state','user_handle','date_handle' ),
+		'ASSOCIATE_TRACK_INFO' => Array('AccountTrack','accountid','title','remark','date_create','user_create'),
+	//	'ASSOCIATE_CONTRACTS_INFO' => Array('Contracts','accountid','contract_no','contract_name','start_date','end_date','sum_money'),
+	);
+	//记录权限关联字段名
+	public $shareField = 'user_attach';
+	
+	//
+	public function autoCompleteFieldValue($field,$pfx)
+	{
+		if($field == 'account_no')
+		{
+			global $APP_ADODB;
+			$sql = "select id from  {$this->baseTable}_seq  limit 1;";
+			$result = $APP_ADODB->Execute($sql);
+			if($result && !$result->EOF)
+			{
+				return  $pfx.sprintf("%012d",$result->fields['id']);
+			}			
+		}
+		return parent::autoCompleteFieldValue($field,$pfx);
+	}
+};
+
+
+
+?>

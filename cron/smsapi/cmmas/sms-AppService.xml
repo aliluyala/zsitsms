@@ -1,0 +1,466 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://218.206.27.231:8085" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://218.206.27.231:8085" xmlns:intf="http://218.206.27.231:8085" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:model.webservice.mas.sxit.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="http://218.206.27.231:8085" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:model.webservice.mas.sxit.com"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_xsd_string">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="xsd:string[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_SendRespMsg">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:SendRespMsg[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_DeliverMsg">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:DeliverMsg[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+  <schema targetNamespace="urn:model.webservice.mas.sxit.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://218.206.27.231:8085"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="InfoHeader">
+    <sequence>
+     <element name="code" nillable="true" type="xsd:string"/>
+     <element name="sid" nillable="true" type="xsd:string"/>
+     <element name="sourceCode" nillable="true" type="xsd:string"/>
+     <element name="timeStamp" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="RespInfo">
+    <sequence>
+     <element name="respCode" type="xsd:int"/>
+     <element name="respMessage" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="SendRespMsg">
+    <sequence>
+     <element name="msgid" type="xsd:long"/>
+     <element name="result" type="xsd:byte"/>
+     <element name="sequenceid" type="xsd:int"/>
+     <element name="type" type="xsd:byte"/>
+    </sequence>
+   </complexType>
+   <complexType name="DeliverMsg">
+    <sequence>
+     <element name="content" nillable="true" type="xsd:string"/>
+     <element name="msgid" type="xsd:long"/>
+     <element name="msisdn" nillable="true" type="xsd:string"/>
+     <element name="sessionId" nillable="true" type="xsd:string"/>
+     <element name="status" nillable="true" type="xsd:string"/>
+     <element name="time" nillable="true" type="xsd:string"/>
+     <element name="type" type="xsd:byte"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="terminateResponse">
+
+      <wsdl:part name="terminateReturn" type="tns1:RespInfo"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSendRespRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="passport" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendSmsResponse">
+
+      <wsdl:part name="sendSmsReturn" type="tns1:RespInfo"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendSmsRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="passport" type="xsd:string"/>
+
+      <wsdl:part name="sequence" type="xsd:int"/>
+
+      <wsdl:part name="srcid" type="xsd:string"/>
+
+      <wsdl:part name="receiverList" type="impl:ArrayOf_xsd_string"/>
+
+      <wsdl:part name="content" type="xsd:string"/>
+
+      <wsdl:part name="reportFlag" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeliverRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="passport" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="whoamiRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="getSendRespResponse">
+
+      <wsdl:part name="getSendRespReturn" type="impl:ArrayOf_tns1_SendRespMsg"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="authRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="spid" type="xsd:string"/>
+
+      <wsdl:part name="password" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getDeliverResponse">
+
+      <wsdl:part name="getDeliverReturn" type="impl:ArrayOf_tns1_DeliverMsg"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendActiveResponse">
+
+      <wsdl:part name="sendActiveReturn" type="tns1:RespInfo"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendMmsRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="passport" type="xsd:string"/>
+
+      <wsdl:part name="sequence" type="xsd:int"/>
+
+      <wsdl:part name="srcid" type="xsd:string"/>
+
+      <wsdl:part name="subject" type="xsd:string"/>
+
+      <wsdl:part name="content" type="xsd:base64Binary"/>
+
+      <wsdl:part name="receiverList" type="impl:ArrayOf_xsd_string"/>
+
+      <wsdl:part name="reportFlag" type="xsd:boolean"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendMmsResponse">
+
+      <wsdl:part name="sendMmsReturn" type="tns1:RespInfo"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainRequest">
+
+      <wsdl:part name="args" type="impl:ArrayOf_xsd_string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="whoamiResponse">
+
+      <wsdl:part name="whoamiReturn" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="terminateRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="passport" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="mainResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="sendActiveRequest">
+
+      <wsdl:part name="header" type="tns1:InfoHeader"/>
+
+      <wsdl:part name="passport" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="authResponse">
+
+      <wsdl:part name="authReturn" type="tns1:RespInfo"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="AppService">
+
+      <wsdl:operation name="main" parameterOrder="args">
+
+         <wsdl:input message="impl:mainRequest" name="mainRequest"/>
+
+         <wsdl:output message="impl:mainResponse" name="mainResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="auth" parameterOrder="header spid password">
+
+         <wsdl:input message="impl:authRequest" name="authRequest"/>
+
+         <wsdl:output message="impl:authResponse" name="authResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="terminate" parameterOrder="header passport">
+
+         <wsdl:input message="impl:terminateRequest" name="terminateRequest"/>
+
+         <wsdl:output message="impl:terminateResponse" name="terminateResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="whoami">
+
+         <wsdl:input message="impl:whoamiRequest" name="whoamiRequest"/>
+
+         <wsdl:output message="impl:whoamiResponse" name="whoamiResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendSms" parameterOrder="header passport sequence srcid receiverList content reportFlag">
+
+         <wsdl:input message="impl:sendSmsRequest" name="sendSmsRequest"/>
+
+         <wsdl:output message="impl:sendSmsResponse" name="sendSmsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendMms" parameterOrder="header passport sequence srcid subject content receiverList reportFlag">
+
+         <wsdl:input message="impl:sendMmsRequest" name="sendMmsRequest"/>
+
+         <wsdl:output message="impl:sendMmsResponse" name="sendMmsResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendActive" parameterOrder="header passport">
+
+         <wsdl:input message="impl:sendActiveRequest" name="sendActiveRequest"/>
+
+         <wsdl:output message="impl:sendActiveResponse" name="sendActiveResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSendResp" parameterOrder="header passport">
+
+         <wsdl:input message="impl:getSendRespRequest" name="getSendRespRequest"/>
+
+         <wsdl:output message="impl:getSendRespResponse" name="getSendRespResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeliver" parameterOrder="header passport">
+
+         <wsdl:input message="impl:getDeliverRequest" name="getDeliverRequest"/>
+
+         <wsdl:output message="impl:getDeliverResponse" name="getDeliverResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="AppServiceSoapBinding" type="impl:AppService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="main">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mainRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mainResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="auth">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="authRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="authResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="terminate">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="terminateRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="terminateResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="whoami">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="whoamiRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="whoamiResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendSms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendSmsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendSmsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendMms">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendMmsRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendMmsResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendActive">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendActiveRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendActiveResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getSendResp">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSendRespRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSendRespResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getDeliver">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getDeliverRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://webservice.mas.sxit.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getDeliverResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://218.206.27.231:8085" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="AppServiceService">
+
+      <wsdl:port binding="impl:AppServiceSoapBinding" name="AppService">
+
+         <wsdlsoap:address location="http://218.206.27.231:8085"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

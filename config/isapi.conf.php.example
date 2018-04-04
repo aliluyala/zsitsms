@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * isapi接口配置
+ */
+return array(
+	'url' => '',
+	'user' => '',
+	'password' => '',
+);
+

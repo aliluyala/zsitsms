@@ -1,0 +1,9 @@
+<?php
+//江苏保险综合平台查询登陆账号
+return array(
+   'userCode' =>'',
+   'passWord' =>'',
+   'baseUrl'  =>'http://10.103.7.232:88',
+);
+
+?>

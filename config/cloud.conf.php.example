@@ -1,0 +1,11 @@
+<?php
+//云系统配置文件
+return Array(
+	'DBHost' => '127.0.0.1',
+	'DBPort' => '3306',
+	'DBUserName' => 'root',
+	'DBPassword' => '',
+	'Database' => 'cloudmgr',
+
+);
+?>

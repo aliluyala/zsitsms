@@ -1,0 +1,49 @@
+<?php
+//系统配置文件
+return Array(
+	//调试开关
+	'debug' => 1,
+	//时区设置
+	'timezone' => 'Asia/Shanghai',
+	//自动语言类型
+	'autoLang' => 0,
+	//语言类型
+	'langType' => 'zh-cn',
+	//数据库类型
+	'DBType' => 'mysql', 
+	//数据库服务器配置
+	'DBServers' => Array(
+		'master' => Array(
+			'DBHost'     => '127.0.0.1',
+			'DBPort'     => '3306',
+			'DBUserName' => 'root',
+			'DBPassword' => '',
+			'Database'   => 'zsitsms123'
+		),
+		'slave' => Array(
+			'DBHost' => '127.0.0.1',
+			'DBPort' => '3306',
+			'DBUserName' => 'root',
+			'DBPassword' => '',
+			'Database' => 'zsitsms123'
+		),
+	),
+	'def_module' => 'HomeShow',
+	'def_action' => 'showHome',
+	'have_agent' => true,
+	
+	// 用户多点登陆类型
+	// allow  :    允许用户多点登陆.
+    // reject :    不允许用户多点登陆,后登陆者将被拒绝.
+    // extrusion : 不允许用户多点登陆,后登陆者将把前面登陆的挤出.
+	//
+	'multiple_login' => 'extrusion',
+	
+	// 用户活动检测时间间隔(秒),不允许用户多点登陆时有效.
+	'activity_check_time'  => 5,
+	
+	// 用户活动超时(秒),超时后说明用户离线,不允许用户多点登陆时有效.
+	'activity_timeout' => 10,
+	
+);
+?>

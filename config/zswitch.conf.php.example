@@ -1,0 +1,80 @@
+<?php
+//软交换配置文件
+return Array(
+//软交换通信接口设置
+'zswitch_ip' => '127.0.0.1',
+'zswitch_port' => '9089',
+'zswitch_user' => 'zswitch',
+'zswitch_pwd' => 'qidian',
+//录音文件目录
+'recordfile_path' => 'downloads/recordings/',
+//访问控制
+'webservicesACL' => Array('127.0.0.1'),
+//座席电话类型 'sipurl' | 'callback' | 'callback_hide'|'jsphone'
+'agent_type' => 'sipurl',
+//允许话单关联默认座席号
+'allow_cdr_defagent' => true,
+//弹屏信息配置
+'popup' => Array(
+    //主叫号码匹配模块 
+	'module' => 'Accounts',
+	//匹配哪个字段
+	'fields' => array('mobile','telphone'),
+	//显示信息的模块方法
+	'info_action' => 'detailView',
+	//显示字段
+	'show_field' => 'owner',
+	//新建的模块方法
+	'new_action' => 'createView',
+	//号码保码字段
+	'save_field' => 'mobile',
+),
+
+/***********************************
+ *呼叫事件短信
+ *KEY:事件,VALUE:短信模块编号
+ *事件：
+ *queue_answered          队列呼入应答
+ *queue_noanswer          队列呼入未应答
+ *agent_callout_answered  座席呼出应答
+ *agent_callout_noanswer  座席呼出未应答
+ *agent_callin_answered   座席呼入应答
+ *agent_callin_noanswer   座席呼入未应答
+ ****************************************/
+'call_event_sms' => Array(
+
+),
+//话单过滤条件,正侧表达式
+'CDR_filter' => Array(
+	'direction' => '',     //方向                  
+	'caller_id_number' => '',  //主叫号码              
+	'callee_id_number'  => '', //被叫号码                   
+	'destination_number' => '',  //目的号码  
+	'source'   => '', //呼叫源                            
+	'context'   => '', //上下文                           
+	'channel_name'   => '',  //通道名                     
+	'channel_created_datetime'  => '', //开始时间            
+	'channel_answered_datetime'   => '', //应答时间         
+	'channel_hangup_datetime'  => '',  //挂机时间  
+	'hangup_cause'   => '',  // 挂机原因                
+	), 
+//呼叫事件过滤,正侧表达式	
+'call_event_filter' => Array(
+	'callerid'=>'',
+	'calleeid'=>'',
+	'state'=>'',
+	'agent'=>'',
+	'queue'=>'',
+	'dir'=>'', 
+	),
+	
+//jsphone配置
+'jsphone' => Array(
+	'server'                  => 'wss://192.168.1.1:7443',
+	'config_url'              => '',
+	'no_answer_timeout'       => 60,
+	'register_expires'        => 600,	
+),	
+
+);
+?>

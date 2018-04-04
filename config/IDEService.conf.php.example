@@ -1,0 +1,18 @@
+<?php
+/**
+ * 项目：          保险数据服务
+ * 文件名:         IDEServer.conf.php
+ * 版权所有：      2015 Tang DaYong.
+ * 作者：          Tang DaYong  
+ * 版本：          1.0.1
+ *
+ * 配置文件
+ **/
+
+return array(
+'url' => '',
+'user' => '',
+'password' => '',
+);
+
+?>

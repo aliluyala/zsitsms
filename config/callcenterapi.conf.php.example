@@ -1,0 +1,16 @@
+<?php
+return Array(
+//服务器ID
+'ZSwitchID' => '01',
+//客户端访问密码
+'ClientAccessPwds' => Array('7ea15a9661b21b131ff35edd6e3ad177'),
+//允许访问的IP
+'Acls' => Array('127.0.0.1/8','192.168.0.0/16','10.8.0.0/16'),
+//座席登录的队列
+'Queue' => 'queue_1', 
+//事件提交URL
+'EventUrls' => Array(
+	'http://192.168.1.50/postprint.php',
+	),
+);
+?>

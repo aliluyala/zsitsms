@@ -1,0 +1,1 @@
+<?phpglobal $APP_ADODB,$CURRENT_IS_ADMIN;if(!$CURRENT_IS_ADMIN){	die('你无权修改！');	}print_r($_GET);if(empty($_GET['recordid'])) die();$APP_ADODB->Execute("update modules set menuid={$_POST['module_menu']} ,module_describe='{$_POST['module_describe']}',default_action='{$_POST['module_action']}' where id ={$_GET['recordid']}");?>

@@ -1,0 +1,7 @@
+<?php
+//中药材天地网短信接口配置
+return Array(
+	'url' => '',//http://s.zyctd.com/SM/SMSend.ashx
+	'smkey' => '',//
+);
+?>

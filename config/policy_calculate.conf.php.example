@@ -1,0 +1,51 @@
+<?php
+//算价配置
+return array(
+	//算价模式 manual:手工,auto:自动计算
+	'model' => 'auto',
+	//算价接口列表
+	'APIs' => array(
+		'中国人民保险公司四川省车险在线算价' => 'PICCKHYXSC',
+		'锦泰财险在线算价'  => 'JingTai',
+		'中国平安云南车线在线算价'  => 'PINGANKHYXYN',
+		'中国人民保险公司重庆市车险在线算价' => 'Chongqin_PICCKHYXSC',
+	), 
+
+	//车辆信息
+	'vehicle' => array(
+		//模块名
+		'module' => 'Accounts',
+		//字段映射
+		'fieldmap' =>array(
+			'LICENSE_NO'   => 'plate_no',         //车牌号码
+			'LICENSE_TYPE' => '',                 //车牌类型
+			'OWNER'        => 'owner',            //拥有人
+			'VIN_NO'       => 'vin',              //车辆识别码
+			'ENGINE_NO'    => 'engine_no',        //发动机号
+			'MODEL'        => 'model',            //品牌型号
+			'ENGINE'       => 'engine',           //排量
+			'SEATS'        => 'seats',            //核定载客
+			'KERB_MASS'    => 'kerb_mass',        //整备质量
+			'MODEL_CODE'   => '',                 //型号代码
+			'BUYING_PRICE' => 'purchase_price',   //新车购置价
+			'ENROLL_DATE'  => 'register_date',    //注册时间
+			'VEHICLE_TYPE' => 'vehicle_type',     //车辆类型
+			'USE_CHARACTER'=> 'use_character',    //使用性质
+			'ORIGIN'       => 'origin',	          //产地
+			'MOBILE'       => 'mobile',           //手机
+			'TELPHONE'     => 'telphone'  ,       //座机
+            'ADDRESS'      => 'address' ,         //地址
+            'IDENTIFY_NO'	=> 'id_code' ,        //证件号码
+		),
+	),
+	//核保流程名,如果是空,不能提交核保。
+	'workflow' => false,
+	//是否允许发送短信
+	'sendsms' => false,
+    //是否隐藏算价器密码
+    'hiddenPassword' => false,
+);
+
+
+
+?>

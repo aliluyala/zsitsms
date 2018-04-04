@@ -1,0 +1,14 @@
+<?php
+/*****************************************************************************
+ *短信模板
+ *1. 短信模板内容中的双引号 ",$  请加转义符 \
+ *2. 内容中加入模板变量,格式为: {$val}
+ *****************************************************************************/
+return Array(
+'policy_calculate_smstpl' => '尊敬的{$form[\'AUTO\'][\'OWNER\']}先生/女士您好！我是四叶草车险专员{$CURRENT_NAME}，工号{$CURRENT_USER_WORKNO}，为您的爱车（{$form[\'AUTO\'][\'LICENSE_NO\']}）车险报价：\r\n商业险{$form[\'POLICY\'][\'BUSINESS_PREMIUM\']}元（含车损{$form[\'POLICY\'][\'TVDI_INSURANCE_AMOUNT\']}元，三者{$form[\'POLICY\'][\'TTBLI_INSURANCE_AMOUNT\']}万元，不计免赔），交强险{$form[\'POLICY\'][\'TOTAL_MVTALCI_PREMIUM\']}元，车船税{$form[\'POLICY\'][\'TOTAL_TRAVEL_TAX_PREMIUM\']}元，\r\n总计{$form[\'POLICY\'][\'TOTAL_STANDARD_PREMIUM\']}元，实收{$form[\'POLICY\'][\'TOTAL_PREMIUM\']}元。\r\n最终价格请以出单为准。',
+);
+
+
+
+
+?>

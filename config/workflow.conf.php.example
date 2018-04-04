@@ -1,0 +1,74 @@
+<?php
+/**
+ * 项目:           工作流引擎接口
+ * 文件名:         workflow.conf.php
+ * 版权所有：      2015 Tang DaYong.
+ * 作者：          Tang DaYong  
+ * 版本：          1.0.0
+ *
+ * 此接口是访问PM 2.5.x 工作流引擎的接口。
+ * 配置文件
+ *  
+ **/
+
+return array(
+//开启工作流
+'enable' => true,
+
+//PM主机地址
+'host' => '127.0.0.1',
+
+//PM主机端口
+'port' => '8011',
+
+//工作区
+'workspace' => 'workflow',
+
+//PM语言
+'lang' => 'zh-CN',
+
+//皮肤
+'skin' => 'neoclassic',
+
+//PM 管理员帐号
+'admin_user' => 'admin',
+
+//PM 管理员密码
+'admin_pwd' => '741013',
+
+//PM 数据库主机
+'DB_host' => '127.0.0.1',
+
+//PM  数据库端口
+'DB_port' => '3306',
+
+//PM 数据名(不用)
+'DB_database' => 'wf_workflow',
+
+//PM 数据用户名
+'DB_user' => 'root',
+
+//PM 数据库密码
+'DB_password' => '',
+
+//流程管理员权限名
+'process_amdin_role' => 'PROCESSMAKER_MANAGER',
+
+//流程操作员权限名
+'process_operator_role' => 'PROCESSMAKER_OPERATOR',
+
+//外部地址映射
+'ext_ip_map' => array(
+	'127.*' => '127.0.0.1:8011',
+	'192.168.1.*' => '192.168.1.50:8011',
+	'*' => '192.168.2.50:8011',
+
+),
+
+);
+
+
+
+
+
+?>

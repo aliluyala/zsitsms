@@ -1,0 +1,20 @@
+<?php
+//移动mas soap接口配置
+return Array(
+	'wsdl' => '',//sms-AppService.xml
+	'spid' => '',//
+	'passwd' => '',//
+	'srcid' => '',//
+	'sign' => '',//
+);
+
+
+
+
+
+
+
+
+
+
+?>
